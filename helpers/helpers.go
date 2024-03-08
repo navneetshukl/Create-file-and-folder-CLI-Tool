@@ -16,3 +16,14 @@ func CreateFolder(name string) error {
 	}
 
 }
+
+// CreateFile function create a file of specific name and extension
+func CreateFile(name string) error {
+	f, err := os.Create(name)
+	if err != nil {
+		log.Println(fmt.Sprintf("Error in creating file name %s . Error is % v ", name, err.Error()))
+	}
+	defer f.Close()
+	return nil
+
+}
